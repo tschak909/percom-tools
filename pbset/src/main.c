@@ -19,7 +19,7 @@
 #include "percom.h"
 
 PercomBlock pb;
-unsigned char drive_num;
+unsigned char drive_num=1;
 unsigned char buf[8];
 
 void args(char* argv[])
@@ -53,14 +53,14 @@ int main(int argc, char* argv[])
 	  return(1);
 	}
 
+      drive_num=atoi(argv[1]);
+      
       if (percom_get(drive_num,&pb)!=1)
 	{
 	  print("COULD NOT RETRIEVE PERCOM BLOCK.");
 	  return(1);
 	}
       
-      drive_num=atoi(argv[1]);
-
       if (argv[2][0]!='-')
 	{
 	  pb.num_tracks=atoi(argv[2]);
@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
   else
     {
       // DOS 2.0
-      print("PRESS \xD2\xC5\xD4\xD5\xD2\xCE TO USE DEFAULT PARAMETER.\x9b\x9b");
+      print("\x9b" "PRESS \xD2\xC5\xD4\xD5\xD2\xCE TO USE DEFAULT PARAMETER.\x9b");
 
       print("DRIVE NUMBER (");
       itoa(drive_num,buf,10);
@@ -217,7 +217,7 @@ int main(int argc, char* argv[])
     }
   else
     {
-      print("OK\x9b");
+      print("\x9b" "OK" "\x9b\x9b");
     }
   return(0);
 }
