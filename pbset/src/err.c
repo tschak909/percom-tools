@@ -13,8 +13,8 @@
 #include <atari.h>
 #include "conio.h"
 
-const char error_138[]="FUJINET NOT RESPONDING\x9B";
-const char error_139[]="FUJINET NAK\x9b";
+const char error_138[]="NOT RESPONDING\x9B";
+const char error_139[]="NAK\x9b";
 const char error[]="SIO ERROR\x9b"; 
 
 /**

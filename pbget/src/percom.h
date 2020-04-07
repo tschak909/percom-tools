@@ -32,13 +32,6 @@ typedef struct _PercomBlock
 unsigned char percom_get(unsigned char d, PercomBlock* p);
 
 /**
- * Set percom block
- * d = drive number
- * p = pointer to percom block struct
- */
-unsigned char percom_set(unsigned char d, PercomBlock* p);
-
-/**
  * Get default parameters
  * Returns a dummy percom block if drive does not
  * support the command, e.g. Atari 810/1050
